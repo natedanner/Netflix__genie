@@ -364,7 +364,7 @@ public class LocalAgentLauncherImpl implements AgentLauncher {
             .withDetail(USED_MEMORY_KEY, jobInfo.getTotalMemoryUsed())
             .withDetail(
                 AVAILABLE_MAX_JOB_CAPACITY_KEY,
-                (availableMemory >= 0 && maxJobMemory > 0) ? (availableMemory / maxJobMemory) : 0)
+                availableMemory >= 0 && maxJobMemory > 0 ? (availableMemory / maxJobMemory) : 0)
             .build();
     }
 

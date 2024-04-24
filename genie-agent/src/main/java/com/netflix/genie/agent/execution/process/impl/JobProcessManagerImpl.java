@@ -277,7 +277,7 @@ public class JobProcessManagerImpl implements JobProcessManager {
         }
 
         final File initFailedFile = initFailedFileRef.get();
-        final String statusMessage = (initFailedFile != null && initFailedFile.exists())
+        final String statusMessage = initFailedFile != null && initFailedFile.exists()
             ? JobStatusMessages.JOB_SETUP_FAILED : JobStatusMessages.JOB_FAILED;
         return new JobProcessResult.Builder(JobStatus.FAILED, statusMessage, exitCode).build();
     }

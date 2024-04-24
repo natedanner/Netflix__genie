@@ -30,7 +30,7 @@ import org.springframework.boot.test.context.runner.ApplicationContextRunner;
  * @since 4.0.0
  */
 class PropertyConvertersAutoConfigurationTest {
-    private ApplicationContextRunner contextRunner =
+    private final ApplicationContextRunner contextRunner =
         new ApplicationContextRunner()
             .withConfiguration(
                 AutoConfigurations.of(
@@ -44,9 +44,8 @@ class PropertyConvertersAutoConfigurationTest {
     @Test
     void canCreateExpectedConverters() {
         this.contextRunner.run(
-            context -> {
-                Assertions.assertThat(context).hasSingleBean(URIPropertyConverter.class);
-            }
+            context ->
+                Assertions.assertThat(context).hasSingleBean(URIPropertyConverter.class)
         );
     }
 }

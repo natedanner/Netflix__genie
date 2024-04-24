@@ -31,7 +31,7 @@ import org.springframework.retry.annotation.RetryConfiguration;
  */
 class RetryAutoConfigurationTest {
 
-    private ApplicationContextRunner contextRunner =
+    private final ApplicationContextRunner contextRunner =
         new ApplicationContextRunner()
             .withConfiguration(
                 AutoConfigurations.of(
@@ -45,10 +45,9 @@ class RetryAutoConfigurationTest {
     @Test
     void expectedBeansExist() {
         this.contextRunner.run(
-            context -> {
+            context ->
                 // This configuration should be imported by the @EnableRetry annotation
-                Assertions.assertThat(context).hasSingleBean(RetryConfiguration.class);
-            }
+                Assertions.assertThat(context).hasSingleBean(RetryConfiguration.class)
         );
     }
 }

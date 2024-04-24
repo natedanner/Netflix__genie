@@ -35,7 +35,7 @@ import org.springframework.context.annotation.Bean;
  */
 class HealthAutoConfigurationTest {
 
-    private ApplicationContextRunner contextRunner =
+    private final ApplicationContextRunner contextRunner =
         new ApplicationContextRunner()
             .withConfiguration(
                 AutoConfigurations.of(
@@ -50,9 +50,8 @@ class HealthAutoConfigurationTest {
     @Test
     void healthBeansCreatedIfNoOthersExist() {
         this.contextRunner.run(
-            context -> {
-                Assertions.assertThat(context).hasSingleBean(GenieAgentHealthIndicator.class);
-            }
+            context ->
+                Assertions.assertThat(context).hasSingleBean(GenieAgentHealthIndicator.class)
         );
     }
 

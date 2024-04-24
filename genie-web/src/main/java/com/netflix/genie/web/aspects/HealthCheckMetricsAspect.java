@@ -94,7 +94,7 @@ public class HealthCheckMetricsAspect {
             h = (Health) joinPoint.proceed(joinPoint.getArgs());
         } finally {
             final long turnaround = System.nanoTime() - start;
-            final String healthStatus = (h != null) ? h.getStatus().getCode() : Status.UNKNOWN.getCode();
+            final String healthStatus = h != null ? h.getStatus().getCode() : Status.UNKNOWN.getCode();
 
             log.debug("Indicator {} status: {} (took {}ns)", healthIndicatorClass, healthStatus, turnaround);
 

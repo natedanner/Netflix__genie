@@ -186,9 +186,8 @@ public class ApisAutoConfiguration {
      */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer apisObjectMapperCustomizer() {
-        return builder -> {
+        return builder ->
             // Register the same PropertyFilters that are registered in the static GenieObjectMapper
             builder.filters(GenieObjectMapper.FILTER_PROVIDER);
-        };
     }
 }

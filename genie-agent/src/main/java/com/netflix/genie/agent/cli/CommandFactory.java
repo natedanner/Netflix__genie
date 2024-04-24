@@ -47,13 +47,12 @@ class CommandFactory {
         this.applicationContext = applicationContext;
 
         agentCommandArguments.forEach(
-            commandArgs -> {
+            commandArgs ->
                 Sets.newHashSet(commandArgs.getClass().getAnnotation(Parameters.class).commandNames()).forEach(
                     commandName -> {
                         commandMap.put(commandName, commandArgs.getConsumerClass());
                     }
-                );
-            }
+                )
         );
     }
 

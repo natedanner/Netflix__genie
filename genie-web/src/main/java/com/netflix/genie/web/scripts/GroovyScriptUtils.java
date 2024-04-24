@@ -141,7 +141,7 @@ public final class GroovyScriptUtils {
         final Class<R> expectedType
     ) {
         if (!binding.hasVariable(variableName)
-            || !(binding.getVariable(variableName).getClass().isAssignableFrom(expectedType))) {
+            || !binding.getVariable(variableName).getClass().isAssignableFrom(expectedType)) {
             throw new IllegalArgumentException(variableName + " argument not instance of " + expectedType.getName());
         }
         return (R) binding.getVariable(variableName);
